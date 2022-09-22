@@ -1,0 +1,107 @@
+{
+    "typeName": "Lacework::Queries::Query",
+    "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+    "typeConfiguration": {
+        "properties": {
+            "LaceworkAccess": {
+                "$ref": "#/definitions/LaceworkAccess"
+            }
+        },
+        "additionalProperties": false
+    },
+    "definitions": {
+        "LaceworkAccess": {
+            "type": "object",
+            "properties": {
+                "Url": {
+                    "type": "string",
+                    "description": "Lacework API endpoint - 'https://YourLacework.lacework.net/api/v2'"
+                },
+                "AccessKeyId": {
+                    "type": "string",
+                    "description": "Lacework API Key - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                },
+                "SecretKey": {
+                    "type": "string",
+                    "description": "Lacework API Secret - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "QueryId": {
+            "type": "string",
+            "description": "Identifier of the query that executes while running the  policy."
+        },
+        "QueryText": {
+            "type": "string",
+            "description": "When sending a request, provide a human-readable text syntax for specifying selection, filtering, and manipulation of data."
+        },
+        "EvaluatorId": {
+            "description": "Optional identifier of the evaluator where the query is run. This field is only for `CloudTrail` queries and policies.",
+            "type": "string"
+        },
+        "Owner": {
+            "type": "string",
+            "description": "User that created the query"
+        },
+        "LastUpdateTime": {
+            "type": "string",
+            "description": "Timestamp in the form yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        },
+        "LastUpdateUser": {
+            "description": "User that last affected the state of this query",
+            "type": "string"
+        },
+        "ResultSchema": {
+            "type": "array",
+            "description": "A list of schemas that match your query.",
+            "insertionOrder": false,
+            "items": {
+                "type": "object"
+            }
+        }
+    },
+    "required": [
+        "QueryId",
+        "QueryText"
+    ],
+    "additionalProperties": false,
+    "readOnlyProperties": [
+        "/properties/EvaluatorId",
+        "/properties/Owner",
+        "/properties/LastUpdateTime",
+        "/properties/LastUpdateUser",
+        "/properties/ResultSchema"
+    ],
+    "primaryIdentifier": [
+        "/properties/QueryId"
+    ],
+    "createOnlyProperties": [
+        "/properties/QueryId"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+            ]
+        },
+        "read": {
+            "permissions": [
+            ]
+        },
+        "update": {
+            "permissions": [
+            ]
+        },
+        "delete": {
+            "permissions": [
+            ]
+        },
+        "list": {
+            "permissions": [
+            ]
+        }
+    }
+}

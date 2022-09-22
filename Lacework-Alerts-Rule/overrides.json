@@ -1,0 +1,30 @@
+{
+  "CREATE": {
+    "/Filters": {
+      "Name": "MyRule",
+      "Description": "A description",
+      "Enabled": 1,
+      "Severity": [
+        1
+      ]
+    },
+    "/IntgGuidList": [
+      "GUID EXISING ALERT CHANNEL"
+    ],
+    "/Type": "Event"
+  },
+  "UPDATE": {
+    "/Filters": {
+      "Name": "MyRule",
+      "Description": "A description",
+      "Enabled": 1,
+      "Severity": [
+        1,2
+      ]
+    },
+    "/IntgGuidList": [
+      "GUID EXISING ALERT CHANNEL"
+    ],
+    "/Type": "Event"
+  }
+}

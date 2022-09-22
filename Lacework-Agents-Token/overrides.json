@@ -1,0 +1,8 @@
+{
+  "CREATE": {
+    "/Props": {
+      "Description": "My Description"
+    },
+    "/TokenEnabled": 1
+  }
+}

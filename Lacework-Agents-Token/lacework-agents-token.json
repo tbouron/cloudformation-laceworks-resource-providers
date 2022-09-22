@@ -1,0 +1,104 @@
+{
+    "typeName": "Lacework::Agents::Token",
+    "description": "Lacework Agent Token schema.  Once created a Lacework Agent token cannot be deleted so if you remove this resource Cloudformation will disable the token.",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+    "typeConfiguration": {
+        "properties": {
+            "LaceworkAccess": {
+                "$ref": "#/definitions/LaceworkAccess"
+            }
+        },
+        "additionalProperties": false
+    },
+    "definitions": {
+        "LaceworkAccess": {
+            "type": "object",
+            "properties": {
+                "Url": {
+                    "type": "string",
+                    "description": "Lacework API endpoint - 'https://YourLacework.lacework.net/api/v2'"
+                },
+                "AccessKeyId": {
+                    "type": "string",
+                    "description": "Lacework API Key - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                },
+                "SecretKey": {
+                    "type": "string",
+                    "description": "Lacework API Secret - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "TokenAlias": {
+            "type": "string",
+            "description": "The token's alias such as Ops Agent. Aliases help communicate the intended purpose of a token and are effective when a value with a single intent appears in multiple places."
+        },
+        "TokenEnabled": {
+            "type": "number",
+            "description": "The tokenEnabled property determines if an edit control is a \"Text token\" edit control. When the tokenEnabled property is set to 1, if the user enters a separator character or a carriage return (CR), a token is automatically added and the user can continue entering values in the control.",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "Props": {
+            "description": "The access token's properties, including createdTime and description.\n\n",
+            "type": "object",
+            "properties": {
+                "Description": {
+                    "type": "string"
+                },
+                "Os": {
+                    "type": "string",
+                    "description": "The operating system"
+                }
+            },
+            "additionalProperties": false
+        },
+        "AccessToken": {
+            "type": "string",
+            "description": "The new agent access token."
+        },
+        "CreatedTime": {
+            "type": "string"
+        },
+        "Version": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "TokenEnabled",
+        "TokenAlias"
+    ],
+    "readOnlyProperties": [
+        "/properties/AccessToken",
+        "/properties/CreatedTime",
+        "/properties/Version"
+    ],
+    "primaryIdentifier": [
+        "/properties/AccessToken"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+            ]
+        },
+        "read": {
+            "permissions": [
+            ]
+        },
+        "update": {
+            "permissions": [
+            ]
+        },
+        "delete": {
+            "permissions": [
+            ]
+        },
+        "list": {
+            "permissions": [
+            ]
+        }
+    }
+}
