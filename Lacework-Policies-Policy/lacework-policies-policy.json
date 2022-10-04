@@ -1,6 +1,6 @@
 {
     "typeName": "Lacework::Policies::Policy",
-    "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+    "description": "A Lacework resource for configuring how an alert is handled",
     "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
     "typeConfiguration": {
         "properties": {

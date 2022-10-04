@@ -49,7 +49,7 @@ export class LaceworkClient {
         } catch (e) {
             let error = e as AxiosError<ApiError>
             if(this.loggerProxy) {
-                this.loggerProxy.log(`Do Request Error ${error.response.data.message} `);
+                this.loggerProxy.log(`Do Request Error ${error.response.data.message} on method ${e.method}`);
             }
             throw e;
         }

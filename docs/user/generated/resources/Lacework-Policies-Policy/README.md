@@ -1,6 +1,6 @@
 # Lacework::Policies::Policy
 
-An example resource schema demonstrating some basic constructs and validation rules.
+A Lacework resource for configuring how an alert is handled
 
 ## Syntax
 

@@ -55,8 +55,6 @@ _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormati
 
 The access token's properties, including createdTime and description.
 
-
-
 _Required_: No
 
 _Type_: <a href="props.md">Props</a>

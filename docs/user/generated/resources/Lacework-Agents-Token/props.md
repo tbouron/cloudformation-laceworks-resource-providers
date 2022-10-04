@@ -2,8 +2,6 @@
 
 The access token's properties, including createdTime and description.
 
-
-
 ## Syntax
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:

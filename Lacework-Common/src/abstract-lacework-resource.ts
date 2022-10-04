@@ -19,7 +19,7 @@ export abstract class AbstractLaceworkResource<ResourceModelType extends BaseMod
         let status = e.status != undefined ? parseInt(e.status) : e.response.status;
         switch (status) {
             case 400:
-                throw new exceptions.NotFound(this.typeName, request.logicalResourceIdentifier);
+                throw new exceptions.InvalidRequest(this.typeName);
             case 401:
                 throw new exceptions.InvalidCredentials(errorMessage);
             case 403:

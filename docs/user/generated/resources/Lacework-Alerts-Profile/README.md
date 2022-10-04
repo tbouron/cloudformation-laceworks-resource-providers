@@ -1,6 +1,6 @@
 # Lacework::Alerts::Profile
 
-An example resource schema demonstrating some basic constructs and validation rules.
+A resource for associating a Lacework alert with a profile
 
 ## Syntax
 

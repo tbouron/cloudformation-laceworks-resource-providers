@@ -42,7 +42,7 @@
             "maximum": 1
         },
         "Props": {
-            "description": "The access token's properties, including createdTime and description.\n\n",
+            "description": "The access token's properties, including createdTime and description.",
             "type": "object",
             "properties": {
                 "Description": {

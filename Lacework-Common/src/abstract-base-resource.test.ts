@@ -171,15 +171,4 @@ describe('AbstractBaseResource', () => {
             }
         });
     });
-    it('should ', function () {
-        try {
-            let axiosError = new AxiosError("Errpr", "400");
-            axiosError.status = "400";
-            throw axiosError;
-        } catch (e) {
-            console.log(JSON.stringify(e));
-            console.log(e.status);
-            expect(e.status).toBe("400");
-        }
-    });
 });

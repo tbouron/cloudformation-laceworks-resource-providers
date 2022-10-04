@@ -1,6 +1,6 @@
 # Lacework::Alerts::Rule
 
-An example resource schema demonstrating some basic constructs and validation rules.
+A Lacework resource for managing the rules by which alerts are invoked
 
 ## Syntax
 

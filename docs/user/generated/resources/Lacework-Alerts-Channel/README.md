@@ -1,6 +1,6 @@
 # Lacework::Alerts::Channel
 
-An example resource schema demonstrating some basic constructs and validation rules.
+A resource for defining Lacework notification channels
 
 ## Syntax
 

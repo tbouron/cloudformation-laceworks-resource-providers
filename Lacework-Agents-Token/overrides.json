@@ -1,7 +1,7 @@
 {
   "CREATE": {
     "/Props": {
-      "Description": "My Description"
+      "Description": "Temporary token created by contract tests and should be disabled once tests are complete"
     },
     "/TokenEnabled": 1
   }

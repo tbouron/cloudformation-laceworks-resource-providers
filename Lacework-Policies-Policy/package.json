@@ -1,5 +1,5 @@
 {
-    "name": "lacework-policies-policy",
+    "name": "Lacework-policies-policy",
     "version": "0.1.0",
     "description": "AWS custom resource provider named Lacework::Policies::Policy.",
     "private": true,

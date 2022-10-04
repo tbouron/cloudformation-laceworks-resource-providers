@@ -1,6 +1,6 @@
 # Lacework::Queries::Query
 
-An example resource schema demonstrating some basic constructs and validation rules.
+A resource for managing Lacework queries
 
 ## Syntax
 
