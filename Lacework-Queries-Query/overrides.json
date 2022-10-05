@@ -1,0 +1,10 @@
+{
+  "CREATE": {
+    "/QueryId": "myTestId",
+    "/QueryText": "{    source {        CloudTrailRawEvents    }    filter {        EVENT_SOURCE = 'ec2.amazonaws.com'        and EVENT_NAME in (            'CreateNetworkAcl',            'CreateNetworkAclEntry',            'DeleteNetworkAcl',            'DeleteNetworkAclEntry',            'ReplaceNetworkAclEntry',            'ReplaceNetworkAclAssociation'        )        and ERROR_CODE is null    }    return distinct {        INSERT_ID,        INSERT_TIME,        EVENT_TIME,        EVENT    }}"
+  },
+  "UPDATE": {
+    "/QueryId": "myTestId",
+    "/QueryText": "{    source {        CloudTrailRawEvents    }    filter {        EVENT_SOURCE = 'ec2.amazonaws.com'        and EVENT_NAME in (            'CreateNetworkAcl'            )        and ERROR_CODE is null    }    return distinct {        INSERT_ID,        INSERT_TIME,        EVENT_TIME,        EVENT    }}"
+  }
+}

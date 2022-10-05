@@ -1,0 +1,36 @@
+{
+  "CREATE": {
+    "/QueryId": "LW_Global_AWS_CTA_NACLChange",
+    "/Title": "Test Title",
+    "/Enabled": true,
+    "/Description": "Test Description",
+    "/Remediation": "Test remediation",
+    "/Severity": "info",
+    "/Limit": 1000,
+    "/AlertEnabled": true,
+    "/AlertProfile": "LW_CloudTrail_Alerts.CloudTrailDefaultAlert_AwsResource",
+    "/Tags": [
+      "Test Tag",
+      "domain:AWS",
+      "subdomain:Cloudtrail"
+    ],
+    "/PolicyId": "aws-cfn-pub-reg-x-test-100"
+  },
+  "UPDATE": {
+    "/QueryId": "LW_Global_AWS_CTA_NACLChange",
+    "/Title": "Test Title updated",
+    "/Enabled": true,
+    "/Description": "Test Description",
+    "/Remediation": "Test remediation",
+    "/Severity": "info",
+    "/Limit": 1000,
+    "/AlertEnabled": true,
+    "/AlertProfile": "LW_CloudTrail_Alerts.CloudTrailDefaultAlert_AwsResource",
+    "/Tags": [
+      "Test Tag",
+      "domain:AWS",
+      "subdomain:Cloudtrail"
+    ],
+    "/PolicyId": "aws-cfn-pub-reg-x-test-100"
+  }
+}

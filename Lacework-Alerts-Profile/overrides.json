@@ -1,0 +1,14 @@
+{
+  "CREATE": {
+    "/AlertProfileId": "Custom_Test_AlertProfiles",
+    "/Extends": "LW_CloudTrail_Alerts.CloudTrailDefaultAlert_AwsResource",
+    "/Alerts": [
+      {
+        "Name": "HE_Machine_NewViolation",
+        "EventName": "Custom LW Host Entity Machine New Violation Alert",
+        "Description": "Custom New Violation for machine",
+        "Subject": "Custom New violation detected for machine"
+      }
+    ]
+  }
+}

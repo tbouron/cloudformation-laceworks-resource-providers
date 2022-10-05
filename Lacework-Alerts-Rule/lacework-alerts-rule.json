@@ -1,0 +1,156 @@
+{
+    "typeName": "Lacework::Alerts::Rule",
+    "description": "A Lacework resource for managing the rules by which alerts are invoked",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+    "typeConfiguration": {
+        "properties": {
+            "LaceworkAccess": {
+                "$ref": "#/definitions/LaceworkAccess"
+            }
+        },
+        "additionalProperties": false
+    },
+    "definitions": {
+        "LaceworkAccess": {
+            "type": "object",
+            "properties": {
+                "Url": {
+                    "type": "string",
+                    "description": "Lacework API endpoint - 'https://YourLacework.lacework.net/api/v2'"
+                },
+                "AccessKeyId": {
+                    "type": "string",
+                    "description": "Lacework API Key - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                },
+                "SecretKey": {
+                    "type": "string",
+                    "description": "Lacework API Secret - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "IntgGuidList": {
+            "type": "array",
+            "insertionOrder": false,
+            "description": "The alert channels for the rule to access.",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "Type": {
+            "type": "string",
+            "description": "The alert type.",
+            "enum": [
+                "Event"
+            ]
+        },
+        "CreatedOrUpdatedTime": {
+            "type": "string",
+            "description": "The timestamp for when the alert channel was created or last updated."
+        },
+        "Filters": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "When sending a request, use this object to define the new alert rule. When included in a response, this object contains details of an alert rule. You can use these attributes when searching for existing alert rules by invoking a GET request.",
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "The alert rule's name.",
+                    "minLength": 1
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Summary of the alert rule."
+                },
+                "Enabled": {
+                    "type": "number",
+                    "description": "When sending a request, use this attribute to enable or disable an alert rule. When included in a response, returns `1` for enabled alert rules, or returns `0` for disabled alert rules.",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "ResourceGroups": {
+                    "type": "array",
+                    "insertionOrder": false,
+                    "description": "The resource groups that you want the rule to apply to.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "EventCategory": {
+                    "type": "array",
+                    "insertionOrder": false,
+                    "description": "The event categories that you want the rule to apply to.",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "Compliance",
+                            "App",
+                            "Cloud",
+                            "File",
+                            "Machine",
+                            "User",
+                            "Platform",
+                            "K8sActivity"
+                        ]
+                    }
+                },
+                "Severity": {
+                    "description": "The severity levels that you want the rule to apply to, where 1 = Critical, 2 = High, 3 = Medium, 4 = Low, and 5 = Info.",
+                    "type": "array",
+                    "insertionOrder": false,
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 5
+                    }
+                }
+            }
+        },
+        "McGuid": {
+            "type": "string",
+            "description": "Alert Rule ID"
+        }
+    },
+    "required": [
+        "Filters",
+        "IntgGuidList",
+        "Type"
+    ],
+    "additionalProperties": false,
+    "readOnlyProperties": [
+        "/properties/McGuid",
+        "/properties/CreatedOrUpdatedTime"
+    ],
+    "primaryIdentifier": [
+        "/properties/McGuid"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+            ]
+        },
+        "read": {
+            "permissions": [
+            ]
+        },
+        "update": {
+            "permissions": [
+            ]
+        },
+        "delete": {
+            "permissions": [
+            ]
+        },
+        "list": {
+            "permissions": [
+            ]
+        }
+    }
+}

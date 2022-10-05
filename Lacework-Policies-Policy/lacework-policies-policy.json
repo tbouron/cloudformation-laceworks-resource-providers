@@ -1,0 +1,159 @@
+{
+    "typeName": "Lacework::Policies::Policy",
+    "description": "A Lacework resource for configuring how an alert is handled",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+    "typeConfiguration": {
+        "properties": {
+            "LaceworkAccess": {
+                "$ref": "#/definitions/LaceworkAccess"
+            }
+        },
+        "additionalProperties": false
+    },
+    "definitions": {
+        "LaceworkAccess": {
+            "type": "object",
+            "properties": {
+                "Url": {
+                    "type": "string",
+                    "description": "Lacework API endpoint - 'https://YourLacework.lacework.net/api/v2'"
+                },
+                "AccessKeyId": {
+                    "type": "string",
+                    "description": "Lacework API Key - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                },
+                "SecretKey": {
+                    "type": "string",
+                    "description": "Lacework API Secret - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "PolicyId": {
+            "type": "string",
+            "description": "Policy ID. The convention for policy ID creation is `accountName-remainder`, for example, lws-special-100. When sending a request, you can simply provide `$account-<remainder>`, and Lacework will substitute the `$account` prefix with your actual account name. **Note:** The `-remainder` must use the regex pattern (`^[a-z]{1,16}(-\\d{1,8})?$`), and cannot be `default` or start with `default-`."
+        },
+        "PolicyType": {
+            "type": "string",
+            "description": "The policy type such as `Violation`.",
+            "enum": [
+                "Violation"
+            ]
+        },
+        "QueryId": {
+            "type": "string",
+            "description": "Identifier of the query that executes while running the policy."
+        },
+        "Title": {
+            "type": "string",
+            "description": "The policy's title."
+        },
+        "Enabled": {
+            "type": "boolean",
+            "description": "When sending a request, use this attribute to enable or disable a policy. When included in a response, returns `True` for enabled policies, or returns `False` for disabled policies."
+        },
+        "Description": {
+            "type": "string",
+            "description": "Information about the new policy."
+        },
+        "Remediation": {
+            "type": "string",
+            "description": "Remediation strategy for the events triggered by the policy."
+        },
+        "Severity": {
+            "type": "string",
+            "description": "The severity of an event triggered by the policy.",
+            "enum": [
+                "info",
+                "low",
+                "medium",
+                "high",
+                "critical"
+            ]
+        },
+        "Limit": {
+            "type": "number",
+            "description": "The maximum number of records that each policy will return. The default value is 1000.",
+            "minimum": 1,
+            "default": 1000
+        },
+        "AlertEnabled": {
+            "type": "boolean",
+            "description": "When sending a request, set to `True` if you want to send alerts to an alert profile when the policy is triggered. Set to `False` if you want to mute alerts when the policy is triggered."
+        },
+        "AlertProfile": {
+            "type": "string",
+            "description": "The alert profile to use for sending alerts when the policy is triggered."
+        },
+        "Tags": {
+            "description": "A list of policy tags.",
+            "insertionOrder": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "EvaluatorId": {
+            "description": "Evaluator ID. For POST and PATCH endpoints, the `evaluatorId` field is still accepted but is ignored. No warning is returned if an `evaluatorId` is provided; this behavior may change in the future. For responses from all of these calls, an `evaluatorId` field is no longer returned.",
+            "type": "string"
+        },
+        "Owner": {
+            "type": "string",
+            "description": "The user who created the policy."
+        },
+        "LastUpdateTime": {
+            "type": "string",
+            "description": "The timestamp for when the policy was last updated."
+        },
+        "LastUpdateUser": {
+            "description": "The user who last updated the policy.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "Title",
+        "Enabled",
+        "Description",
+        "QueryId",
+        "Remediation",
+        "Severity",
+        "AlertEnabled"
+    ],
+    "primaryIdentifier": [
+        "/properties/PolicyId"
+    ],
+    "createOnlyProperties": [
+        "/properties/PolicyId"
+    ],
+    "readOnlyProperties": [
+        "/properties/EvaluatorId",
+        "/properties/Owner",
+        "/properties/LastUpdateTime",
+        "/properties/LastUpdateUser"
+    ],
+    "additionalProperties": false,
+    "handlers": {
+        "create": {
+            "permissions": [
+            ]
+        },
+        "read": {
+            "permissions": [
+            ]
+        },
+        "update": {
+            "permissions": [
+            ]
+        },
+        "delete": {
+            "permissions": [
+            ]
+        },
+        "list": {
+            "permissions": [
+            ]
+        }
+    }
+}

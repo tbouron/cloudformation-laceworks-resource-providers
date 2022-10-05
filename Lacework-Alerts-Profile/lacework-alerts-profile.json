@@ -1,0 +1,93 @@
+{
+    "typeName": "Lacework::Alerts::Profile",
+    "description": "A resource for associating a Lacework alert with a profile",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+    "typeConfiguration": {
+        "properties": {
+            "LaceworkAccess": {
+                "$ref": "#/definitions/LaceworkAccess"
+            }
+        },
+        "additionalProperties": false
+    },
+    "definitions": {
+        "LaceworkAccess": {
+            "type": "object",
+            "properties": {
+                "Url": {
+                    "type": "string",
+                    "description": "Lacework API endpoint - 'https://YourLacework.lacework.net/api/v2'"
+                },
+                "AccessKeyId": {
+                    "type": "string",
+                    "description": "Lacework API Key - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                },
+                "SecretKey": {
+                    "type": "string",
+                    "description": "Lacework API Secret - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Alerts": {
+            "type": "array",
+            "description": "An alert is a definition of content to create from the results of a resource's policy violation. The event name, subject, and description contained in the alert appear in pushed alerts and in the Lacework Console.",
+            "insertionOrder": false,
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "object"
+            }
+        }
+    },
+    "properties": {
+        "AlertProfileId": {
+            "description": "Unique id within customer account for Alert Profile",
+            "type": "string"
+        },
+        "Extends": {
+            "type": "string",
+            "description": "Base Lacework defined Alert Profile to inherit properties"
+        },
+        "Alerts": {
+            "$ref": "#/definitions/Alerts"
+        }
+    },
+    "required": [
+        "AlertProfileId",
+        "Extends",
+        "Alerts"
+    ],
+    "additionalProperties": false,
+    "primaryIdentifier": [
+        "/properties/AlertProfileId"
+    ],
+    "createOnlyProperties": [
+        "/properties/AlertProfileId"
+    ],
+    "writeOnlyProperties": [
+        "/properties/Alerts"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+            ]
+        },
+        "read": {
+            "permissions": [
+            ]
+        },
+        "update": {
+            "permissions": [
+            ]
+        },
+        "delete": {
+            "permissions": [
+            ]
+        },
+        "list": {
+            "permissions": [
+            ]
+        }
+    }
+}
