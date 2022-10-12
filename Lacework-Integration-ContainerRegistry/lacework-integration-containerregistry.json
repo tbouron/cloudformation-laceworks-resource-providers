@@ -1,0 +1,107 @@
+{
+    "typeName": "Lacework::Integration::ContainerRegistry",
+    "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+
+    "typeConfiguration": {
+        "properties": {
+            "LaceworkAccess": {
+                "$ref": "#/definitions/LaceworkAccess"
+            }
+        },
+        "additionalProperties": false
+    },
+    "definitions": {
+        "LaceworkAccess": {
+            "type": "object",
+            "properties": {
+                "Url": {
+                    "type": "string",
+                    "description": "Lacework API endpoint - 'https://YourLacework.lacework.net/api/v2'"
+                },
+                "AccessKeyId": {
+                    "type": "string",
+                    "description": "Lacework API Key - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                },
+                "SecretKey": {
+                    "type": "string",
+                    "description": "Lacework API Secret - see 'https://docs.lacework.com/console/generate-api-access-keys-and-tokens'"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "Name": {
+            "title": "Name",
+            "type": "string",
+            "description": "When sending a request, use this attribute to specify an integration's name. When included in a response, this attribute returns the specified integration's name.",
+            "minLength": 1
+        },
+        "Type": {
+            "title": "Type",
+            "type": "string",
+            "description": "When sending a request, use this attribute to specify the type of integration, from the following options. When included in a response, this attribute returns the specified integration's type.",
+            "enum": [
+                "ContVulnCfg"
+            ]
+        },
+        "Enabled": {
+            "title": "Enabled",
+            "type": "number",
+            "description": "When sending a request, use this attribute to enable or disable an integration. When included in a response, returns 1 for an enabled integration or 0 for a disabled integration",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "Data": {
+            "type": "string"
+        },
+        "IntgGuid": {
+            "type": "string",
+            "description": "The integration's globally unique identifier."
+        },
+        "CreatedOrUpdatedTime": {
+            "type": "string",
+            "description": "The timestamp for when the alert channel was created or last updated."
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "Name",
+        "Type",
+        "Data",
+        "Enabled"
+    ],
+    "readOnlyProperties": [
+        "/properties/IntgGuid",
+        "/properties/CreatedOrUpdatedTime"
+    ],
+    "primaryIdentifier": [
+        "/properties/IntgGuid"
+    ],
+    "writeOnlyProperties": [
+        "/properties/Data"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+            ]
+        },
+        "read": {
+            "permissions": [
+            ]
+        },
+        "update": {
+            "permissions": [
+            ]
+        },
+        "delete": {
+            "permissions": [
+            ]
+        },
+        "list": {
+            "permissions": [
+            ]
+        }
+    }
+}
