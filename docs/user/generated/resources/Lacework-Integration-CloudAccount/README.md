@@ -69,6 +69,8 @@ _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormati
 
 #### Data
 
+A stringified JSON object as defined here https://yourlacework.lacework.net/api/v2/docs#tag/ContainerRegistries/paths/~1api~1v2~1ContainerRegistries/post
+
 _Required_: Yes
 
 _Type_: String
